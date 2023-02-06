@@ -1,2 +1,5 @@
 .vscode/
 target/
+.idea/
+htmlReport/
+.ds_store

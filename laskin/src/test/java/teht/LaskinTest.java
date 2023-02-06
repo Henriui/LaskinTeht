@@ -34,6 +34,7 @@ public class LaskinTest { // Luokan nimen loppu pitää olla Test
 
     @Test
     public void testVahenna() {
+        laskin.nollaa();
         laskin.lisaa(10);
         laskin.vahenna(2);
         assertEquals(8, laskin.annaTulos(), "Lukujen 10 ja 2 erotus väärin");
@@ -42,6 +43,7 @@ public class LaskinTest { // Luokan nimen loppu pitää olla Test
     @Test
     @DisplayName("Testaa jakolasku 8 / 2")
     public void testJaa() {
+        laskin.nollaa();
         laskin.lisaa(8);
         laskin.jaa(2);
         assertEquals(4, laskin.annaTulos(), "Jakolasku 8/2 väärin");
@@ -56,9 +58,12 @@ public class LaskinTest { // Luokan nimen loppu pitää olla Test
         assertEquals("Nollalla ei voi jakaa", poikkeus.getMessage());
     }
  
-    @Test
-    @Disabled("HUOMAA - Metodi kerro() on vielä toteuttamatta, eikä sitä haluta ajaa vielä")
-    public void testKerro() {
-       fail("TESTIÄ EI OLE VIELÄ TOTEUTETTU");
-    }
+@Test
+@DisplayName("kerro(): laskeeko kertolaskun oikein")
+public void testKerro() {
+    laskin.lisaa(8);
+    laskin.kerro(2);
+    assertEquals(16, laskin.annaTulos(), "Lukujen 8 ja 2 kertolasku väärin");
+
+}
 }
